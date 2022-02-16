@@ -1,5 +1,5 @@
 :root {
-    --colorOftheBody: green;
+    --colorOftheBody: black;
 }
 
 
@@ -21,4 +21,95 @@ li {
 
 body {
     background-color: var(--colorOftheBody);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ================================ */
+
+.mainHeader {
+    width: 100%;
+    height: 800px;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.671);
+}
+
+.mainHeader>div {
+    height: 90%;
+}
+
+
+/* !Général milieu */
+
+.mainHeader>div:nth-of-type(2n) {
+    width: 14%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.move {
+    width: 75px;
+    height: 75px;
+    color: white;
+    font-weight: bold;
+    font-size: 4em;
+    cursor: pointer;
+    margin: 0.15em 0;
+    border: 2px solid;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.move:hover {
+    background-color: navy;
+}
+
+.move:active {
+    background-color: brown;
+}
+
+
+/* !Général droite et gauche */
+
+.mainHeader>div:nth-of-type(2n+1) {
+    width: 42%;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ?theMobileText */
+
+.theMobileText {
+    width: 80%;
+    height: 15%;
+    margin: 2% 0;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    text-indent: 20px;
+    font-size: 3em;
+    font-weight: bold;
+    font-family: 'Ubuntu';
+}
+
+.theMobileText:hover {
+    background-color: navy;
+    color: white;
 }
