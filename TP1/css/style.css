@@ -1,5 +1,6 @@
 :root {
     --colorOftheBody: #7bdbf3;
+    --colorMenu: #9ec962;
 }
 
 
@@ -21,4 +22,159 @@ li {
 
 body {
     background-color: var(--colorOftheBody);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    font-family: 'Ubuntu';
+}
+
+
+/* les icones : les span */
+
+#deleteNote {
+    margin: 0 20px;
+}
+
+
+/* les icones : les i */
+
+i {
+    font-size: 2.5em;
+    cursor: pointer;
+    color: white;
+}
+
+
+/* !Début mainHeader =============================== */
+
+.mainHeader {
+    height: 100px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+/* ? addnote */
+
+.addNote {
+    width: 250px;
+    height: 90%;
+    background-color: var(--colorMenu);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.addNoteItem {
+    font-size: 2em;
+    color: white;
+}
+
+
+/* !Fin mainHeader =============================== */
+
+
+/**
+=====
+=====
+=====
+=====
+=====
+ */
+
+
+/* !Début noteContainer =============================== */
+
+
+/* ? noteContainer */
+
+.noteContainer {
+    width: 95%;
+    height: 100%;
+    margin: 3em auto auto;
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+
+/* TODO  note ****************************/
+
+.note {
+    width: 27%;
+    height: 625px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    /* ! important */
+    border-radius: 20px 20px 0px 0px;
+}
+
+
+/* ?Note menu */
+
+.noteMenu {
+    background-color: var(--colorMenu);
+    width: 100%;
+    height: 75px;
+    /* ! important */
+    border-radius: 20px 20px 0px 0px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+/* ?Note Text */
+
+.noteText {
+    width: 100%;
+    height: 550px;
+}
+
+.addText {
+    width: 100%;
+    height: 100%;
+    resize: none;
+    font-size: 3em;
+    outline: none;
+}
+
+
+/* ================================hover et focus
+========================
+========================
+========================
+========================
+========================
+========================
+=====*/
+
+
+/* survoler le bouton ajouter une nouvelle note */
+
+.addNote:hover {
+    background-color: navy;
+}
+
+.addNote:hover span,
+.addNote:hover i {
+    color: greenyellow;
+}
+
+
+/* survoler le bouton edit */
+
+.editNote i:hover {
+    color: yellow;
+}
+
+
+/* survoler le bouton suprimer */
+
+.deleteNote i:hover {
+    color: red;
 }
