@@ -1,5 +1,8 @@
 :root {
-    --colorOftheBody: yellow;
+    --colorOfTheBody: #2C3A47;
+    --colorOfTheGrandCadre: #2a124d;
+    --colorOfTheGenerateButton: #e5b63e;
+    --colorOfTheMainHeader: #533281;
 }
 
 
@@ -20,5 +23,161 @@ li {
 }
 
 body {
-    background-color: var(--colorOftheBody);
+    background-color: var(--colorOfTheBody);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+    font-size: 1.5em;
+    font-family: 'Ubuntu';
+}
+
+input {
+    display: block;
+}
+
+
+/* ======================================== */
+
+.mainHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 94%;
+    background-color: var(--colorOfTheMainHeader);
+}
+
+.grandCadre {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 900px;
+    height: 90%;
+    background-color: var(--colorOfTheGrandCadre);
+}
+
+.cadran {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    height: 200px;
+    margin-top: 5%;
+    background-color: var(--colorOfTheMainHeader);
+    position: relative;
+}
+
+.ecran {
+    width: 100%;
+    height: 100%;
+    background-color: var(--colorOfTheMainHeader);
+    font-size: 2em;
+    color: #fff;
+    outline: none;
+}
+
+.ecran:focus {
+    outline: var(--colorOfTheGenerateButton) solid 3px;
+}
+
+.tooltip {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 13%;
+    height: 55%;
+    color: var(--colorOfTheGrandCadre);
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.tooltip:hover {
+    background-color: red;
+}
+
+.tooltip:active {
+    font-size: 0.2em;
+    transform: scale(200%);
+    font-size: 2em;
+    color: red;
+    background-color: navy;
+}
+
+
+/* .inaccessible {
+    visibility: hidden;
+} */
+
+
+/* !features============== */
+
+.features {
+    width: 94%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+/* !passwordLenght */
+
+.passwordLenght {
+    width: 10%;
+    height: 50%;
+    outline: none;
+    font-size: 2em;
+}
+
+.passwordLenght:focus {
+    outline: var(--colorOfTheGenerateButton) solid 10px;
+}
+
+
+/* !features and propeteries  */
+
+.featureItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin: 1% 0;
+}
+
+.featureLabel {
+    font-size: 1.75em;
+    cursor: pointer;
+}
+
+
+/* ?Radioclick */
+
+.Radioclick {
+    transform: scale(200%);
+    cursor: pointer;
+}
+
+
+/* !generer */
+
+.generer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 20%;
+    background-color: var(--colorOfTheGenerateButton);
+    color: var(--colorOfTheMainHeader);
+    font-size: 2.5em;
+    font-weight: bold;
+    cursor: pointer;
 }

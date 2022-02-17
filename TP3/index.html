@@ -11,6 +11,51 @@
 </head>
 
 <body>
+    <main class="mainHeader" id="mainHeader">
+        <div class="grandCadre" id="grandCadre">
+
+            <!-- * ecran -->
+            <div id="cadran" class="cadran">
+                <input type="text" name="" id="ecran" class="ecran" value="RTFC55">
+                <small class="tooltip inaccessible">copy</small>
+            </div>
+
+            <!-- * features -->
+            <div class="features" id="features">
+                <!-- todo Longueur du mot de passe -->
+                <div class="featureItem">
+                    <label for="passwordLenght" class="featureLabel">Longueur du mot de passe</label>
+                    <input type="text" id="passwordLenght" class="passwordLenght">
+                </div>
+
+                <!--    todo Contient des lettres Majuscules  -->
+                <div class="featureItem">
+                    <label for="upperCaseValue" class="featureLabel" id="">Contient des lettres Majuscules</label>
+                    <input type="radio" name="" id="upperCaseValue" value="ok" class="Radioclick">
+                </div>
+                <!--  -->
+                <!--    todo Contient des lettres Minuscules  -->
+                <div class="featureItem">
+                    <label for="lowerCaseValue" class="featureLabel" id="">Contient des lettres Minuscules</label>
+                    <input type="radio" name="" id="lowerCaseValue" value="ok" class="Radioclick">
+                </div>
+                <!--    todo Contient des Nombres  -->
+                <div class="featureItem">
+                    <label for="numericalValue" class="featureLabel" id="">Contient des Nombres</label>
+                    <input type="radio" name="" id="numericalValue" value="ok" class="Radioclick">
+                </div>
+                <!--    todo Contient des Caratères spéciaux  -->
+                <div class="featureItem">
+                    <label for="specialCharsetalue" class="featureLabel" id="">Contient des Caratères spéciaux</label>
+                    <input type="radio" name="" id="specialCharsetalue" value="ok" class="Radioclick">
+                </div>
+            </div>
+
+            <!-- * Generate password -->
+            <div id="generer" class="generer">Générer le mot de passe</div>
+        </div>
+    </main>
+
     <!-- ! lien script javaScript  -->
     <script src="js/script.js"></script>
 </body>
