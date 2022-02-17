@@ -59,7 +59,7 @@ i {
 /* ? addnote */
 
 .addNote {
-    width: 250px;
+    min-width: 15%;
     height: 90%;
     background-color: var(--colorMenu);
     display: flex;
@@ -111,6 +111,7 @@ i {
     background-color: white;
     /* ! important */
     border-radius: 20px 20px 0px 0px;
+    position: relative;
 }
 
 
@@ -132,7 +133,9 @@ i {
 
 .noteText {
     width: 100%;
+    height: 100%;
     height: 550px;
+    position: relative;
 }
 
 .addText {
