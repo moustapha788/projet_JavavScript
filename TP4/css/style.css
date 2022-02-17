@@ -1,5 +1,7 @@
 :root {
-    --colorOftheBody: gray;
+    --colorOftheBody: #d2d8e3;
+    --colorOfTheHeader: navy;
+    --colorOfTheButton: #854ca8;
 }
 
 
@@ -21,4 +23,157 @@ li {
 
 body {
     background-color: var(--colorOftheBody);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Ubuntu';
+    height: 100vh;
+}
+
+
+/* ================================ */
+
+
+/* ! header */
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--colorOfTheButton);
+    color: #fff;
+    height: 20%;
+    position: sticky;
+    top: 0;
+    margin-bottom: 1%;
+}
+
+.theGame {
+    font-size: 5em;
+}
+
+
+/* ! mainHeader */
+
+.mainHeader {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* !cadreQuiz */
+
+.cadreQuiz {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+}
+
+
+/* ! quizCard */
+
+.quizCard {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+.libele {
+    width: 100%;
+    height: 20%;
+    background-color: white;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* !questions */
+
+.questions {
+    width: 100%;
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* !checkQuestions */
+
+.checkQuestions {
+    width: 70%;
+    display: flex;
+    justify-content: flex-start;
+    margin: 0.25%;
+    padding: 0% 2%;
+}
+
+
+/* !quizLabel */
+
+.quizLabel {
+    font-size: 3em;
+    cursor: pointer;
+    margin-left: 5%;
+}
+
+
+/* ! Input radio */
+
+.checkQuestions input {
+    transform: scale(200%);
+    cursor: pointer;
+    outline: none;
+}
+
+
+/* !aQuiz */
+
+.aQuiz {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--colorOfTheButton);
+}
+
+.aQuiz:hover {
+    background-color: red;
+}
+
+.aQuiz a {
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-size: 3em;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* !cadreReponse */
+
+.cadreReponse {
+    visibility: hidden;
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cadreReponse>:nth-of-type(n) {
+    height: 50%;
 }
