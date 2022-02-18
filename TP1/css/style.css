@@ -135,6 +135,7 @@ i {
 .addText {
     font-size: 3em;
     outline: none;
+    height: 500px;
 }
 
 
@@ -157,6 +158,16 @@ i {
 .addNote:hover span,
 .addNote:hover i {
     color: greenyellow;
+}
+
+.addNote:active {
+    background-color: #25CCF7;
+    transform: scale(90%);
+}
+
+.addNote:active span,
+.addNote:active i {
+    color: white;
 }
 
 
