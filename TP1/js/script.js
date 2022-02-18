@@ -7,8 +7,8 @@ function removeNote(idRemove) {
 
 
 
-
-(function() {
+// fonction anonyme pour gérer toutes les cartes et leurs fonctionnalités
+(() => {
 
     // !AJOUT D'UN NOUVEL NOTE
     const addNote = document.getElementById('addNote');
@@ -77,6 +77,7 @@ function removeNote(idRemove) {
         deleteNote.addEventListener('click', () => {
             noteContainer.removeChild(note);
         });
+
         // !editer la note
         editNote.addEventListener('click', () => {
             addText.toggleAttribute('disabled');
@@ -84,34 +85,4 @@ function removeNote(idRemove) {
         });
 
     }, false);
-
-
-
-
-
-
 })();
-
-
-/* 
-
-<!-- TODO ONE NOTE -->
-<div id="note" class="note">
-    <!-- !MENU OF THE NOTE -->
-    <div class="noteMenu">
-        <!-- * edit the note -->
-        <span class="editNote" id="editNote">
-            <i class="fa-solid fa-pen-to-square"></i>
-        </span>
-        <!-- * delete the note -->
-        <span class="deleteNote" id="deleteNote">
-            <i class="fa-solid fa-trash-can" ></i>
-        </span>
-    </div>
-    <!-- !THE NOTE IT SELF -->
-    <div class="noteText" id="noText">
-        <textarea class="addText" id="addText" cols="30" rows="10"></textarea>
-    </div>
-</div>
-<!-- fin de ma note -->
-*/
