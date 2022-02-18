@@ -72,6 +72,10 @@ body {
     text-align: center;
 }
 
+.desactiver {
+    background-color: red;
+}
+
 .move:hover {
     background-color: navy;
     color: white;
@@ -109,9 +113,10 @@ body {
     font-size: 3em;
     font-weight: bold;
     font-family: 'Ubuntu';
+    cursor: pointer;
 }
 
-.theMobileText:hover {
-    background-color: navy;
+.selected {
+    background-color: #1700ff;
     color: white;
 }
