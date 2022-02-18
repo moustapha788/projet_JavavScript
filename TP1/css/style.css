@@ -136,6 +136,7 @@ i {
     font-size: 3em;
     outline: none;
     height: 500px;
+    min-width: 120px;
 }
 
 
