@@ -59,10 +59,7 @@ input {
 }
 
 .cadran {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 95%;
+    width: 100%;
     height: 200px;
     margin-top: 5%;
     background-color: var(--colorOfTheMainHeader);
@@ -113,10 +110,9 @@ input {
     background-color: navy;
 }
 
-
-/* .inaccessible {
+.inaccessible {
     visibility: hidden;
-} */
+}
 
 
 /* !features============== */
