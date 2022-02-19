@@ -8,6 +8,10 @@
     <title>TP3</title>
     <!-- ! lien css -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- ! lien script javaScript  -->
+    <script src="js/script.js" defer></script>
+    <!-- !lien CDN font awesome -->
+    <script src="https://kit.fontawesome.com/3043159520.js" crossorigin="anonymous" defer></script>
 </head>
 
 <body>
@@ -16,8 +20,10 @@
 
             <!-- * ecran -->
             <div id="cadran" class="cadran">
-                <input type="text" name="" id="ecran" class="ecran" value="RTFC55">
-                <small class="tooltip inaccessible">copy</small>
+                <input type="text" name="" id="ecran" class="ecran" value="Générateur de mot de passe" readonly maxlength="20">
+                <small class="tooltip inaccessible" id="tooltip">
+                    copy<i class="fa-solid fa-clipboard"></i>
+                </small>
             </div>
 
             <!-- * features -->
@@ -25,13 +31,13 @@
                 <!-- todo Longueur du mot de passe -->
                 <div class="featureItem">
                     <label for="passwordLenght" class="featureLabel">Longueur du mot de passe</label>
-                    <input type="text" id="passwordLenght" class="passwordLenght">
+                    <input type="number" value="15" min="5" max="20" id="passwordLenght" autofocus class="passwordLenght">
                 </div>
 
                 <!--    todo Contient des lettres Majuscules  -->
                 <div class="featureItem">
                     <label for="upperCaseValue" class="featureLabel" id="">Contient des lettres Majuscules</label>
-                    <input type="checkbox" name="" id="upperCaseValue" value="ok" class="Radioclick">
+                    <input type="checkbox" name="" id="upperCaseValue" value="ok" checked class="Radioclick">
                 </div>
 
                 <!--    todo Contient des lettres Minuscules  -->
@@ -58,8 +64,7 @@
         </div>
     </main>
 
-    <!-- ! lien script javaScript  -->
-    <script src="js/script.js"></script>
+
 </body>
 
 </html>
