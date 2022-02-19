@@ -6,14 +6,11 @@
  ==
  */
 // TODO : Récupération de mes élémént pour créer mon DOM
-
 // !ecran
 // *ecran
 let ecran = document.getElementById('ecran');
 // *tooltip copy
 const tooltip = document.getElementById('tooltip');
-
-
 // !caractéristiques du mot de passe 
 // *passwordLenght
 const passwordLenght = document.getElementById('passwordLenght');
@@ -45,7 +42,6 @@ var dataUpperChar = alphabetFr.toUpperCase().split('');
 var dataLowerChar = alphabetFr.split('');
 var dataNumerik = numbers.split('');
 var dataCharCode = charCode.split('');
-
 // ?======================function======================
 /* ==================
  ==============
@@ -67,13 +63,11 @@ function generator(start, end) {
     }
     return tabGenerated.split('');
 }
-
 // !fonction qui permet de savoir si un input de type chexbox est coché ou pas afin :
 function isChecked(idInput) {
     idInput = document.getElementById(idInput);
     return idInput.checked;
 }
-
 // !fonction qui permet de renvoyer un tableau suivant que l'élémént chexbox est coché au non
 function returnItemTrousseau(idInput, tabChar) {
     tabData = [];
@@ -111,8 +105,7 @@ function genererMotDePasse() {
     const T4 = returnItemTrousseau('specialCharsetalue', dataCharCode);
     // todo mon nouveau trousseau de jetons(chiffres ,.caractères spéciaux...)
     trousseau = trousseau.concat(T1, T2, T3, T4);
-
-    // ? si l'utilisateur ne coche aucun élément.
+    // ! si l'utilisateur ne coche aucun élément n'éxécute ne continue pas
     if (trousseau.length === 0) {
         ecran = document.getElementById('ecran');
         ecran.value = 'Générateur de mot de passe';
@@ -130,30 +123,22 @@ function genererMotDePasse() {
         }
         // !copier le mot de passe générer dans l'écran
         ecran.value = passwordGenerate;
+        // !evénement copier
+        tooltip.setAttribute('class', 'tooltip');
+        generer.innerHTML = 'mot de passe généré';
+        setTimeout(() => { generer.innerHTML = 'Générer le mot de passe'; }, 1000);
+        tooltip.addEventListener('click', () => {
+            // ! sélection puis copie de mot de passe
+            ecran.select();
+            document.execCommand("copy");
+        });
     }
 }
-
-
-
-
-
-// ! fonction qui permet de copier un mot de passe
-
-function copyThePassword(idEcran) {
-    const ecran = document.getElementById(idEcran);
-    ecran.select();
-    // document.execCommand("copy");
-}
-
 // ?======================Events======================
 /* ==================
  ==============
  ==========
  ======
  ==
- */
-// !evénement générer
+ */ // !evénement générer
 generer.addEventListener('click', genererMotDePasse);
-
-// !evénement copier
-// tooltip.addEventListener('click', copyThePassword('ecran'));
