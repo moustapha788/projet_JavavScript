@@ -14,6 +14,8 @@ const tooltip = document.getElementById('tooltip');
 // !caractéristiques du mot de passe 
 // *passwordLenght
 const passwordLenght = document.getElementById('passwordLenght');
+// *error
+const error = document.getElementById('error');
 // *upperCaseValue
 const upperCaseValue = document.getElementById('upperCaseValue');
 // *lowerCaseValue
@@ -109,11 +111,22 @@ function genererMotDePasse() {
     if (trousseau.length === 0) {
         ecran = document.getElementById('ecran');
         ecran.value = 'Générateur de mot de passe';
-        alert('vérifiez que vous  avez sélectionné des critères pour le mot de passe ')
+        // !générer l'erreur
+        error.setAttribute('class', 'error');
+        error.innerHTML = 'vérifiez que vous  avez sélectionné des critères pour le mot de passe ';
+        setTimeout(() => {
+            error.setAttribute("class", 'inaccessible')
+        }, 2000);
         return;
     }
     if (!(passwordLenght.value)) {
-        alert("la valeur ne peut être vide et doit être un entier");
+        // !générer l'erreur
+        error.setAttribute('class', 'error');
+        error.innerHTML = 'la valeur ne peut être vide et doit être un entier';
+        setTimeout(() => {
+            error.setAttribute("class", 'inaccessible')
+        }, 2000);
+        // alert("la valeur ne peut être vide et doit être un entier");
     } else {
         // !Génération du mot de passe
         let passwordGenerate = '';
@@ -133,6 +146,7 @@ function genererMotDePasse() {
             document.execCommand("copy");
         });
     }
+
 }
 // ?======================Events======================
 /* ==================
