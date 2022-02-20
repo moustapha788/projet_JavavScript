@@ -77,6 +77,16 @@ input {
     outline: none;
 }
 
+.text_center {
+    text-align: center!important;
+}
+
+.color_red {
+    color: red!important;
+    text-align: center!important;
+    /* animation: ; */
+}
+
 .ecran:focus {
     outline: var(--colorOfTheGenerateButton) solid 3px;
 }
