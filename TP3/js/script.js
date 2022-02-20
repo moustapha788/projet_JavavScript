@@ -6,6 +6,8 @@
  ==
  */
 // TODO : Récupération de mes élémént pour créer mon DOM
+// !cadran
+const cadran = document.getElementById('cadran');
 // !ecran
 // *ecran
 let ecran = document.getElementById('ecran');
@@ -51,20 +53,6 @@ var dataCharCode = charCode.split('');
  ======
  ==
  */
-// !fonction qui permet de générer un tableau de caractères qui sont très spéciales
-/* 
-spé : START 33 - END 47
-0-9 : START 48 - END 57
-A-Z : START 65 - END 90
-a-z : START 97 - END 122
- */
-function generator(start, end) {
-    let tabGenerated = ''; // ! Initialisation
-    for (let i = start; i < end; i++) {
-        tabGenerated += String.fromCharCode(i);
-    }
-    return tabGenerated.split('');
-}
 // !fonction qui permet de savoir si un input de type chexbox est coché ou non  :
 function isChecked(idInput) {
     idInput = document.getElementById(idInput);
@@ -77,21 +65,6 @@ function returnItemTrousseau(idInput, tabChar) {
         tabData = tabChar;
     }
     return tabData;
-}
-// !fonction non utilisée mais qui permet récupérer la valeur sasie par l'utilisateur
-function getPasswordLenght(idInputPassword) {
-    const inputPassword = document.getElementById(idInputPassword);
-    return inputPassword.value;
-}
-// !fonction non utilisée mais qui permet de savoir si une valeur est un entier ou non
-function estEntier(value) {
-    if (Number.isInteger(value)) {
-        if (value > 0) {
-            return true;
-        }
-    } else {
-        return false;
-    }
 }
 // ! fonction qui permet de générer un mot de passe
 function genererMotDePasse() {
@@ -109,11 +82,10 @@ function genererMotDePasse() {
     trousseau = trousseau.concat(T1, T2, T3, T4);
     // ! si l'utilisateur ne coche aucun élément n'éxécute ne continue pas
     if (trousseau.length === 0) {
+        tooltip.setAttribute('class', 'inaccessible');
         //  ! générer dans l'écran
         ecran.value = 'Aucun critère choisi ';
         ecran.setAttribute('class', 'ecran color_red');
-        tooltip.setAttribute('class', 'inaccessible');
-
         setTimeout(() => {
             ecran.setAttribute("class", 'ecran')
             ecran.value = 'Générateur de mot passe ';
@@ -126,22 +98,20 @@ function genererMotDePasse() {
         }, 2000);
         return;
     }
-    if (!(passwordLenght.value)) {
+    if (!(passwordLenght.value) || trousseau.length == 0) {
+        tooltip.setAttribute('class', 'inaccessible');
         //  ! générer dans l'écran
         ecran.value = 'taille mot de passe vide ou invalide ';
         ecran.setAttribute('class', 'ecran color_red');
         setTimeout(() => {
             ecran.value = 'Générateur de mot passe ';
             ecran.setAttribute("class", 'ecran');
-            tooltip.setAttribute('class', 'inaccessible');
-
-
         }, 2000);
         //  ! générer en bas
-        // error.setAttribute('class', 'error');
-        // error.innerHTML = 'la valeur ne peut être vide et doit être un entier';
+        error.setAttribute('class', 'error');
+        error.innerHTML = 'la valeur ne peut être vide et doit être un entier';
         setTimeout(() => {
-            // error.setAttribute("class", 'inaccessible')
+            error.setAttribute("class", 'inaccessible');
         }, 2000);
     } else {
         // !Génération du mot de passe
@@ -152,15 +122,27 @@ function genererMotDePasse() {
         }
         // !copier le mot de passe générer dans l'écran
         ecran.value = passwordGenerate;
-        // !evénement copier
-        tooltip.setAttribute('class', 'tooltip');
         generer.innerHTML = 'mot de passe généré';
-        setTimeout(() => { generer.innerHTML = 'Générer le mot de passe'; }, 1000);
-        tooltip.addEventListener('click', () => {
-            // ! sélection puis copie de mot de passe
-            ecran.select();
-            document.execCommand("copy");
+        generer.setAttribute("disabled", 'disabled');
+
+        // !événement survole sur l'ecran
+        ecran.addEventListener('mouseover', () => {
+            // !evénement copier
+            tooltip.setAttribute('class', 'tooltip');
+            setTimeout(() => { generer.innerHTML = 'Générer le mot de passe'; }, 1000);
+            tooltip.addEventListener('click', () => {
+                // ! sélection puis copie de mot de passe
+                ecran.select();
+                document.execCommand("copy");
+                this.setAttribute('class', 'inaccessible');
+            });
         });
+        setTimeout(() => {
+            tooltip.addEventListener('mouseleave', () => {
+                ecran.blur();
+                generer.setAttribute('class', 'generer');
+            });
+        }, 2000)
     }
 }
 // ?======================Events======================
@@ -170,4 +152,5 @@ function genererMotDePasse() {
  ======
  ==
  */ // !evénement générer
+
 generer.addEventListener('click', genererMotDePasse);
