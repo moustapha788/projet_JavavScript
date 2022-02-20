@@ -65,12 +65,12 @@ function generator(start, end) {
     }
     return tabGenerated.split('');
 }
-// !fonction qui permet de savoir si un input de type chexbox est coché ou pas afin :
+// !fonction qui permet de savoir si un input de type chexbox est coché ou non  :
 function isChecked(idInput) {
     idInput = document.getElementById(idInput);
     return idInput.checked;
 }
-// !fonction qui permet de renvoyer un tableau suivant que l'élémént chexbox est coché au non
+// !fonction qui permet de renvoyer un tableau suivant que l'élémént chexbox est coché ou non
 function returnItemTrousseau(idInput, tabChar) {
     tabData = [];
     if (isChecked(idInput)) {
@@ -78,12 +78,12 @@ function returnItemTrousseau(idInput, tabChar) {
     }
     return tabData;
 }
-// !fonction qui permet récupérer la valeur sasie par l'utilisateur
+// !fonction non utilisée mais qui permet récupérer la valeur sasie par l'utilisateur
 function getPasswordLenght(idInputPassword) {
     const inputPassword = document.getElementById(idInputPassword);
     return inputPassword.value;
 }
-// !fonction qui permet de savoir si une valeur est un entier ou non
+// !fonction non utilisée mais qui permet de savoir si une valeur est un entier ou non
 function estEntier(value) {
     if (Number.isInteger(value)) {
         if (value > 0) {
@@ -97,21 +97,28 @@ function estEntier(value) {
 function genererMotDePasse() {
     // todo Initialisation de mon trousseau de jetons(chiffres ,.caractères spéciaux...)
     let trousseau = [];
-    // uppercase
+    // * uppercase
     const T1 = returnItemTrousseau('upperCaseValue', dataUpperChar);
-    // lowercase
+    // * lowercase
     const T2 = returnItemTrousseau('lowerCaseValue', dataLowerChar);
-    // numeric
+    // * numeric
     const T3 = returnItemTrousseau('numericalValue', dataNumerik);
-    // specialCharCode
+    // * specialCharCode
     const T4 = returnItemTrousseau('specialCharsetalue', dataCharCode);
     // todo mon nouveau trousseau de jetons(chiffres ,.caractères spéciaux...)
     trousseau = trousseau.concat(T1, T2, T3, T4);
     // ! si l'utilisateur ne coche aucun élément n'éxécute ne continue pas
     if (trousseau.length === 0) {
-        ecran = document.getElementById('ecran');
-        ecran.value = 'Générateur de mot de passe';
-        // !générer l'erreur
+        //  ! générer dans l'écran
+        ecran.value = 'Aucun critère choisi ';
+        ecran.setAttribute('class', 'ecran color_red');
+        tooltip.setAttribute('class', 'inaccessible');
+
+        setTimeout(() => {
+            ecran.setAttribute("class", 'ecran')
+            ecran.value = 'Générateur de mot passe ';
+        }, 2000);
+        //  ! générer en bas
         error.setAttribute('class', 'error');
         error.innerHTML = 'vérifiez que vous  avez sélectionné des critères pour le mot de passe ';
         setTimeout(() => {
@@ -120,13 +127,22 @@ function genererMotDePasse() {
         return;
     }
     if (!(passwordLenght.value)) {
-        // !générer l'erreur
-        error.setAttribute('class', 'error');
-        error.innerHTML = 'la valeur ne peut être vide et doit être un entier';
+        //  ! générer dans l'écran
+        ecran.value = 'taille mot de passe vide ou invalide ';
+        ecran.setAttribute('class', 'ecran color_red');
         setTimeout(() => {
-            error.setAttribute("class", 'inaccessible')
+            ecran.value = 'Générateur de mot passe ';
+            ecran.setAttribute("class", 'ecran');
+            tooltip.setAttribute('class', 'inaccessible');
+
+
         }, 2000);
-        // alert("la valeur ne peut être vide et doit être un entier");
+        //  ! générer en bas
+        // error.setAttribute('class', 'error');
+        // error.innerHTML = 'la valeur ne peut être vide et doit être un entier';
+        setTimeout(() => {
+            // error.setAttribute("class", 'inaccessible')
+        }, 2000);
     } else {
         // !Génération du mot de passe
         let passwordGenerate = '';
@@ -146,7 +162,6 @@ function genererMotDePasse() {
             document.execCommand("copy");
         });
     }
-
 }
 // ?======================Events======================
 /* ==================
