@@ -16,57 +16,50 @@
         <h1 class="theGame">Jeu de Questions à choix multiples</h1>
     </header>
     <main class="mainHeader" id="mainHeader">
-        <!-- the quiz cards -->
-        <section class="cadreQuiz" id="cadreQuiz">
-            <!-- ?a quiz card -->
-            <div class="quizCard" id="quizCard">
-                <!-- !libele -->
-                <h1 id="libele" class="libele">Quel est le meilleur langage de programation en 2022</h1>
-                <!-- !the questions of the quiz -->
-                <div class="questions" id="questions">
-                    <!-- *the proposition 1 -->
-                    <div class="checkQuestions" id="Q1">
-                        <input type="radio" name="" id="prop1">
-                        <label for="prop1" class="quizLabel" id="quizLabel">Java</label>
-                    </div>
-                    <!-- *the proposition 2 -->
-                    <div class="checkQuestions" id="Q2">
-                        <input type="radio" name="" id="prop2">
-                        <label for="prop2" class="quizLabel" id="quizLabel">C</label>
-                    </div>
-                    <!-- *the proposition 3 -->
-                    <div class="checkQuestions" id="Q3">
-                        <input type="radio" name="" id="prop3">
-                        <label for="prop3" class="quizLabel" id="quizLabel">Python</label>
-                    </div>
-                    <!-- *the proposition 4 -->
-                    <div class="checkQuestions" id="Q4">
-                        <input type="radio" name="" id="prop4">
-                        <label for="prop4" class="quizLabel" id="quizLabel">JavaScript</label>
-                    </div>
-                    <!-- *the proposition 5 -->
-                    <div class="checkQuestions" id="Q5">
-                        <input type="radio" name="" id="prop5">
-                        <label for="prop5" class="quizLabel" id="quizLabel">PHP</label>
-                    </div>
+        <!-- ?a quiz card -->
+        <div class="quizCard" id="quizCard">
+            <!-- !libele -->
+            <h1 id="libQuestion" class="libele">Quel est le meilleur langage de programation en 2022</h1>
+            <!-- !the questions of the quiz -->
+            <div class="questions" id="questions">
+                <!-- *the proposition 1 -->
+                <div class="checkQuestions" id="Q1">
+                    <input type="radio" name="propositions" id="prop1">
+                    <label for="prop1" class="quizLabel" id="quizLabel1">Java</label>
                 </div>
-
-                <!-- !the next quiz -->
-                <div class="aQuiz">
-                    <a href="#" id="nextQuiz">Suivant</a>
+                <!-- *the proposition 2 -->
+                <div class="checkQuestions" id="Q2">
+                    <input type="radio" name="propositions" id="prop2">
+                    <label for="prop2" class="quizLabel" id="quizLabel2">C</label>
+                </div>
+                <!-- *the proposition 3 -->
+                <div class="checkQuestions" id="Q3">
+                    <input type="radio" name="propositions" id="prop3">
+                    <label for="prop3" class="quizLabel" id="quizLabel3">Python</label>
+                </div>
+                <!-- *the proposition 4 -->
+                <div class="checkQuestions" id="Q4">
+                    <input type="radio" name="propositions" id="prop4">
+                    <label for="prop4" class="quizLabel" id="quizLabel4">JavaScript</label>
+                </div>
+                <!-- *the proposition 5 -->
+                <div class="checkQuestions" id="Q5">
+                    <input type="radio" name="propositions" id="prop5">
+                    <label for="prop5" class="quizLabel" id="quizLabel5">PHP</label>
                 </div>
             </div>
-        </section>
+
+            <!-- !the next quiz -->
+            <div class="nextQuiz" id="nextQuiz">Suivant</div>
+        </div>
 
         <!-- the response and the new game -->
-        <section class="cadreReponse" id="cadreReponse">
+        <div class="inaccesible" id="cadreReponse">
             <!-- !response -->
-            <h1 class="libele" id="reponse">Vous avez trouvé 1/4</h1>
+            <h1 class="libele special" id="reponse">Vous avez trouvé 80% des questions</h1>
             <!-- !New game -->
-            <div class="aQuiz">
-                <a href="#" id="newGame">Rejouer</a>
-            </div>
-        </section>
+            <div class="newQuiz" id="newQuiz">Rejouer</div>
+        </div>
     </main>
 
     <!-- ! lien script javaScript  -->

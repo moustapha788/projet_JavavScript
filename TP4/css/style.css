@@ -1,7 +1,8 @@
 :root {
     --colorOftheBody: #d2d8e3;
-    --colorOfTheHeader: navy;
+    --colorOfTheHeader: #854ca8;
     --colorOfTheButton: #854ca8;
+    --colorHover: #854ca86b;
 }
 
 
@@ -43,55 +44,51 @@ body {
     align-items: center;
     background-color: var(--colorOfTheButton);
     color: #fff;
-    height: 20%;
+    /*.header=12%+.mainHeader=86%  */
+    height: 12%;
     position: sticky;
     top: 0;
     margin-bottom: 1%;
+    box-shadow: 0px 12px 12px rgba(0, 0, 0, 0.25);
 }
 
 .theGame {
-    font-size: 5em;
+    font-size: 4em;
 }
 
 
 /* ! mainHeader */
 
 .mainHeader {
-    height: 80%;
+    height: 86%;
     display: flex;
     flex-direction: column;
-}
-
-
-/* !cadreQuiz */
-
-.cadreQuiz {
-    width: 100%;
-    height: 70%;
-    display: flex;
-    flex-direction: column;
-    background-color: red;
+    justify-content: center;
+    align-items: center;
 }
 
 
 /* ! quizCard */
 
 .quizCard {
-    width: 100%;
-    height: 100%;
+    min-width: 950px;
     display: flex;
     flex-direction: column;
     background-color: white;
+    border-radius: 20px;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 0px 0px 12px 10px rgba(0, 0, 0, 0.250);
 }
 
 .libele {
     width: 100%;
+    /*.libele=20% + .questions=75% */
     height: 20%;
-    background-color: white;
     font-size: 2em;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 20px 20px 0 0;
 }
 
 
@@ -100,19 +97,27 @@ body {
 .questions {
     width: 100%;
     height: 75%;
+    padding: 1% 0;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 
 /* !checkQuestions */
 
 .checkQuestions {
-    width: 70%;
+    width: 100%;
     display: flex;
     justify-content: flex-start;
-    margin: 0.25%;
+    margin: 0.5% 0;
     padding: 0% 2%;
+}
+
+.checkQuestions:hover {
+    background-color: var(--colorHover);
+    color: var(--colorOfTheButton);
 }
 
 
@@ -128,30 +133,21 @@ body {
 /* ! Input radio */
 
 .checkQuestions input {
+    margin-left: 6%;
     transform: scale(200%);
     cursor: pointer;
     outline: none;
 }
 
 
-/* !aQuiz */
+/* !nextQuiz and newQuiz */
 
-.aQuiz {
+.nextQuiz {
+    margin-top: 1%;
     width: 100%;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 150px;
     background-color: var(--colorOfTheButton);
-}
-
-.aQuiz:hover {
-    background-color: red;
-}
-
-.aQuiz a {
-    width: 100%;
-    height: 100%;
+    border-radius: 0px 0px 20px 20px;
     color: white;
     font-size: 3em;
     font-weight: bold;
@@ -159,21 +155,62 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+}
+
+.newQuiz {
+    width: 100%;
+    background-color: var(--colorOfTheButton);
+    border-radius: 0px 0px 20px 20px;
+    color: white;
+    font-size: 3em;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.termine {
+    background-color: green!important;
+    cursor: none!important;
+    border-radius: 20px 20px 20px 20px;
+    margin: 0!important;
+}
+
+.nextQuiz:hover,
+.newQuiz:hover,
+.nextQuiz:focus,
+.newQuiz:focus {
+    background-color: green!important;
 }
 
 
 /* !cadreReponse */
 
 .cadreReponse {
-    visibility: hidden;
+    margin-top: 10%;
     width: 100%;
     height: 30%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 0px 0px 12px 10px rgba(0, 0, 0, 0.250);
 }
 
 .cadreReponse>:nth-of-type(n) {
     height: 50%;
+}
+
+.special {
+    background-color: white;
+    font-size: 3em;
+    cursor: none;
+}
+
+.inaccesible {
+    visibility: hidden;
 }
