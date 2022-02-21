@@ -93,12 +93,12 @@ input {
 
 .tooltip {
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 13%;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1%;
+    width: 6%;
     height: 55%;
     color: var(--colorOfTheGrandCadre);
-    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -108,16 +108,20 @@ input {
     cursor: pointer;
 }
 
-.tooltip:hover {
-    background-color: var(--colorOfTheGenerateButton);
+.tooltip i {
+    font-size: 2em;
+    width: 100%;
 }
 
-.tooltip:active {
+.tooltip:hover i {
+    color: var(--colorOfTheGenerateButton);
+}
+
+.tooltip i:active {
     font-size: 0.2em;
     transform: scale(150%);
     font-size: 1.2em;
-    color: red;
-    background-color: navy;
+    color: green;
 }
 
 .inaccessible {
