@@ -7,7 +7,7 @@ a-z : START 97 - END 122
  */
 function generator(start, end) {
     let tabGenerated = ''; // ! Initialisation
-    for (let i = start; i < end; i++) {
+    for (let i = start; i <= end; i++) {
         tabGenerated += String.fromCharCode(i);
     }
     return tabGenerated.split('');
