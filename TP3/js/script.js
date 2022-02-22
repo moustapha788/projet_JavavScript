@@ -44,6 +44,7 @@ var charCode = "!@#$%^&*-=+\|:;',.></?°[]{}§¨~`";
 // !tableaux de données
 var dataUpperChar = alphabetFr.toUpperCase().split('');
 var dataLowerChar = alphabetFr.split('');
+
 var dataNumerik = numbers.split('');
 var dataCharCode = charCode.split('');
 // ?======================function======================
@@ -66,6 +67,46 @@ function returnItemTrousseau(idInput, tabChar) {
     }
     return tabData;
 }
+
+
+
+
+
+
+// si aucun critère est coché alors alors le bojuton
+upperCaseValue.addEventListener('click', () => {
+    if (isChecked('upperCaseValue') || isChecked('lowerCaseValue') || isChecked('numericalValue') || isChecked('specialCharsetalue')) {
+        generer.setAttribute('class', 'generer');
+    } else {
+        generer.setAttribute('class', 'generer disabled');
+    }
+});
+lowerCaseValue.addEventListener('click', () => {
+    if (isChecked('upperCaseValue') || isChecked('lowerCaseValue') || isChecked('numericalValue') || isChecked('specialCharsetalue')) {
+        generer.setAttribute('class', 'generer');
+    } else {
+        generer.setAttribute('class', 'generer disabled');
+    }
+});
+numericalValue.addEventListener('click', () => {
+    if (isChecked('upperCaseValue') || isChecked('lowerCaseValue') || isChecked('numericalValue') || isChecked('specialCharsetalue')) {
+        generer.setAttribute('class', 'generer');
+    } else {
+        generer.setAttribute('class', 'generer disabled');
+    }
+});
+specialCharsetalue.addEventListener('click', () => {
+    if (isChecked('upperCaseValue') || isChecked('lowerCaseValue') || isChecked('numericalValue') || isChecked('specialCharsetalue')) {
+        generer.setAttribute('class', 'generer');
+    } else {
+        generer.setAttribute('class', 'generer disabled');
+    }
+});
+// 
+
+
+
+
 // ! fonction qui permet de générer un mot de passe
 function genererMotDePasse() {
     // todo Initialisation de mon trousseau de jetons(chiffres ,.caractères spéciaux...)
@@ -80,6 +121,7 @@ function genererMotDePasse() {
     const T4 = returnItemTrousseau('specialCharsetalue', dataCharCode);
     // todo mon nouveau trousseau de jetons(chiffres ,.caractères spéciaux...)
     trousseau = trousseau.concat(T1, T2, T3, T4);
+
     // ! si l'utilisateur ne coche aucun élément n'éxécute ne continue pas
     if (trousseau.length === 0) {
         tooltip.setAttribute('class', 'inaccessible');
@@ -114,35 +156,49 @@ function genererMotDePasse() {
             error.setAttribute("class", 'inaccessible');
         }, 2000);
     } else {
-        // !Génération du mot de passe
-        let passwordGenerate = '';
-        for (let i = 0; i < passwordLenght.value; i++) {
-            let pos = Math.floor((Math.random()) * trousseau.length);
-            passwordGenerate += trousseau[pos];
-        }
-        // !copier le mot de passe générer dans l'écran
-        ecran.value = passwordGenerate;
-        generer.innerHTML = 'mot de passe généré';
-        generer.setAttribute("disabled", 'disabled');
+        if ((passwordLenght.value >= 5) && (passwordLenght.value <= 20)) {
 
-        // !événement survole sur l'ecran
-        ecran.addEventListener('mouseover', () => {
-            // !evénement copier
-            tooltip.setAttribute('class', 'tooltip');
-            setTimeout(() => { generer.innerHTML = 'Générer le mot de passe'; }, 1000);
-            tooltip.addEventListener('click', () => {
-                // ! sélection puis copie de mot de passe
-                ecran.select();
-                document.execCommand("copy");
-                this.setAttribute('class', 'inaccessible');
+            // !Génération du mot de passe
+            let passwordGenerate = '';
+            for (let i = 0; i < passwordLenght.value; i++) {
+                let pos = Math.floor((Math.random()) * trousseau.length);
+                passwordGenerate += trousseau[pos];
+            }
+            // !copier le mot de passe générer dans l'écran
+            ecran.value = passwordGenerate;
+            generer.innerHTML = 'mot de passe généré';
+            generer.setAttribute("disabled", 'disabled');
+
+            // !événement survole sur l'ecran
+            ecran.addEventListener('mouseover', () => {
+                // !evénement copier
+                tooltip.setAttribute('class', 'tooltip');
+                setTimeout(() => { generer.innerHTML = 'Générer le mot de passe'; }, 1000);
+                tooltip.addEventListener('click', () => {
+                    // ! sélection puis copie de mot de passe
+                    ecran.select();
+                    document.execCommand("copy");
+                    this.setAttribute('class', 'inaccessible');
+                });
             });
-        });
-        setTimeout(() => {
-            tooltip.addEventListener('mouseleave', () => {
-                ecran.blur();
-                generer.setAttribute('class', 'generer');
-            });
-        }, 2000)
+            setTimeout(() => {
+                tooltip.addEventListener('mouseleave', () => {
+                    ecran.blur();
+                    generer.setAttribute('class', 'generer');
+                });
+            }, 2000)
+        } else {
+            //  ! générer dans l'écran
+            ecran.value = 'Le mot de passe doit être compris entre 5 et 20';
+            ecran.setAttribute('class', 'ecran color_red');
+            ecran.style.fontSize = '1.75em';
+            setTimeout(() => {
+                ecran.value = 'Générateur de mot passe ';
+                ecran.setAttribute("class", 'ecran');
+                ecran.style.fontSize = '2.5em';
+            }, 2000);
+        }
+
     }
 }
 // ?======================Events======================
@@ -152,5 +208,4 @@ function genererMotDePasse() {
  ======
  ==
  */ // !evénement générer
-
 generer.addEventListener('click', genererMotDePasse);
