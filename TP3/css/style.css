@@ -23,7 +23,9 @@ li {
 }
 
 body {
-    background-color: var(--colorOfTheBody);
+    /* background-color: var(--colorOfTheBody); */
+    background: url(/images/ASCII_1.png);
+    /* background-size: cover; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -210,12 +212,19 @@ input {
     font-size: 2.5em;
     font-weight: bold;
     cursor: pointer;
+    text-align: center;
 }
 
 .generer:hover {
     background-color: green;
-    border: 2px solid #fff;
     color: white;
+}
+
+.disabled,
+.disabled:hover {
+    color: rgba(255, 255, 255, 0.287)!important;
+    background-color: black!important;
+    cursor: default;
 }
 
 
