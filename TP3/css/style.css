@@ -23,9 +23,7 @@ li {
 }
 
 body {
-    /* background-color: var(--colorOfTheBody); */
-    background: url(/images/ASCII_1.png);
-    /* background-size: cover; */
+    background: #34ace0;
     display: flex;
     justify-content: center;
     align-items: center;

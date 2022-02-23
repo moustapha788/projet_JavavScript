@@ -18,7 +18,8 @@ const tooltip = document.getElementById('tooltip');
 const passwordLenght = document.getElementById('passwordLenght');
 // *error
 const error = document.getElementById('error');
-// *upperCaseValue
+const mesSelect = document.querySelectorAll('#features input[type="checkbox"]')
+    // *upperCaseValue
 const upperCaseValue = document.getElementById('upperCaseValue');
 // *lowerCaseValue
 const lowerCaseValue = document.getElementById('lowerCaseValue');
@@ -61,7 +62,7 @@ function isChecked(idInput) {
 }
 // !fonction qui permet de renvoyer un tableau suivant que l'élémént chexbox est coché ou non
 function returnItemTrousseau(idInput, tabChar) {
-    tabData = [];
+    let tabData = [];
     if (isChecked(idInput)) {
         tabData = tabChar;
     }
@@ -208,4 +209,8 @@ function genererMotDePasse() {
  ======
  ==
  */ // !evénement générer
+console.log(mesSelect);
 generer.addEventListener('click', genererMotDePasse);
+/* document.addEventListener('load', () => {
+
+}) */
