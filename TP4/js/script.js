@@ -49,10 +49,20 @@ const dataQuiz = [{
         prop3: "Paris",
         prop4: "Abidjan",
         prop5: "Dakar",
-        correction: "prop4"
+        correction: "prop5"
+    }, {
+        question: "Comment s'appelle le thioro de Souleymane Diallo.Dévine!",
+        prop1: "Aby",
+        prop2: "autre",
+        prop3: "Fatimata",
+        prop4: "Khady",
+        prop5: "Oulimata",
+        correction: "prop3"
     }
 ];
+// console.log(dataQuiz.shuffle());
 // ! Variables getting by 
+const quizOrder = document.getElementById('quizOrder');
 // todo _ mainHeader :direct parent of id[quizCard]
 const mainHeader = document.getElementById('mainHeader');
 // todo _ quizCard :direct parent of id[libele,questions,cadreReponse]
@@ -90,27 +100,15 @@ const newQuiz = document.getElementById('newQuiz');
  ***
  ****
  */
-// !fonction qui permet de savoir si un input de type radio est coché ou non  :
-function isChecked() {
-    cpt = 0
-    propositions.forEach(prop => {
-        if (prop.checked) {
-            cpt++;
-        }
-    });
-    if (cpt >= 1) {
-        nextQuiz.innerText = 'yes';
-    }
-}
-
 // todo initialisation 
 let score = 0;
 let numberQuizCourant = 0;
-
+// 
 chargerLeQuiz();
 // ! fonction qui utilise le IIFE et qui permet de charger le quiz
 function chargerLeQuiz() {
     deselectionner();
+    quizOrder.innerText = `Question N° ${numberQuizCourant + 1} sur ${dataQuiz.length} `;
     const quizCourant = dataQuiz[numberQuizCourant];
     question.innerText = quizCourant.question;
     quizLabel1.innerText = quizCourant.prop1;
@@ -121,8 +119,22 @@ function chargerLeQuiz() {
 };
 // ! fonction qui permet de désélectionner tous les éléments cochés si quizLabel3'est le cas
 function deselectionner() {
-    propositions.forEach(prop => { prop.checked = false });
+    propositions.forEach(prop => {
+        prop.checked = false;
+        prop.nextElementSibling.style.color = 'black';
+
+    });
 }
+// !fonction qui permet de faire une correction
+function correction(rep) {
+    let correct = document.getElementById(rep);
+    if (rep == dataQuiz[numberQuizCourant].correction) {
+        correct.nextElementSibling.style.color = 'green';
+    } else {
+        correct.nextElementSibling.style.color = 'red';
+    }
+}
+
 // ! fonction qui permet de récupérer La Réponse Cochée
 function recupereLaReponseCoche() {
     let laReponse;
@@ -133,7 +145,6 @@ function recupereLaReponseCoche() {
     });
     return laReponse;
 }
-
 // ?======================EventHandler======================
 /* ==================
  ==============
@@ -147,21 +158,43 @@ nextQuiz.addEventListener('click', () => {
         if (saReponse == dataQuiz[numberQuizCourant].correction) {
             score++;
         }
-
+        correction(saReponse);
+        // !passe au quiz suivant si c'est pas fini
         numberQuizCourant++;
-
         if (numberQuizCourant < dataQuiz.length) {
-            chargerLeQuiz();
+            setTimeout(chargerLeQuiz, 500);
         } else {
+            quizOrder.innerText = "Merci d'avoir joué";
             quizCard.removeChild(questions);
             quizCard.removeChild(question);
             cadreReponse.setAttribute('class', 'cadreReponse');
             let scoreFinal = Math.floor(100 * (score / dataQuiz.length));
             nextQuiz.innerText = "Quiz terminé";
             nextQuiz.setAttribute('class', 'nextQuiz termine');
-            reponse.innerText = `Vous avez trouvé ${scoreFinal}%  des questions`;
+            const appreciations = performances(scoreFinal);
+            reponse.innerText = `Vous avez trouvé ${scoreFinal}%  des questions\n` + appreciations;
             newQuiz.setAttribute('onclick', "location.reload()");
-
+            dataQuiz.reverse();
         }
     }
-})
+});
+
+//! fonctions qui permet d'attribuer une appréciations en fonction du score obtenue (en terme de %)
+function performances(score) {
+    if (0 <= score && score <= 20) {
+        appreciations = "Très mal! N'empêche réssaye encore!";
+    } else if (score < 50) {
+        appreciations = 'Mal! Mais ne laissez pas tomber';
+    } else if (score == 50) {
+        appreciations = 'Passable! Amériolez-vous et n';
+    } else if (score <= 60) {
+        appreciations = 'Abien! je sais que vous pouvez faire mieux ';
+    } else if (score <= 80) {
+        appreciations = 'Bien! quelques pas pour arriver au dessus';
+    } else if (score < 100) {
+        appreciations = 'trés! quelques efforts encore pour arriver au sommet';
+    } else {
+        appreciations = 'Excellent! On dirait une bibliothèque';
+    }
+    return appreciations;
+}

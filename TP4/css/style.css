@@ -42,10 +42,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     background-color: var(--colorOfTheButton);
     color: #fff;
-    /*.header=12%+.mainHeader=86%  */
-    height: 12%;
+    /*.height:   header=12%+.mainHeader=86%  */
+    height: 15%;
     position: sticky;
     top: 0;
     margin-bottom: 1%;
@@ -53,7 +54,24 @@ body {
 }
 
 .theGame {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 4em;
+    /* background-color: black; */
+}
+
+.quizOrder {
+    width: 300px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    color: greenyellow;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 
@@ -209,6 +227,7 @@ body {
     background-color: white;
     font-size: 3em;
     cursor: none;
+    text-align: center;
 }
 
 .inaccesible {
