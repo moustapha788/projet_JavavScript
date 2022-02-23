@@ -1,3 +1,4 @@
+'use strict';
 // ! Tableau de texte
 const tableauText = ["Mon Premier",
     "Mon Deuxième",
@@ -63,7 +64,7 @@ function isSelected() {
     // todo Event: déplacement de Gauche à Droite
     btnMoveL2R.addEventListener('click', () => {
         //! variables Collection de éléments HTML me permettant de savoir ceux sonnt séléctionné dans la boîte gauche
-        selectedFromLeft = document.querySelectorAll('#divGauche .selected');
+        let selectedFromLeft = document.querySelectorAll('#divGauche .selected');
         if (selectedFromLeft.length != 0) {
             if (divGauche.children.length != 0) {
                 selectedFromLeft.forEach(theP => {
@@ -92,7 +93,7 @@ function isSelected() {
     // todo Event: déplacement de Droite à Gauche
     btnMoveR2L.addEventListener('click', () => {
         //! variables Collection de éléments HTML me permettant de savoir ceux sonnt séléctionné dans la boîte droite
-        selectedFromRight = document.querySelectorAll('#divDroite .selected');
+        let selectedFromRight = document.querySelectorAll('#divDroite .selected');
         if (selectedFromRight.length != 0) {
             if (divDroite.children.length != 0) {
                 selectedFromRight.forEach(theP => {
