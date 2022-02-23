@@ -18,7 +18,7 @@ const tooltip = document.getElementById('tooltip');
 const passwordLenght = document.getElementById('passwordLenght');
 // *error
 const error = document.getElementById('error');
-const mesSelect = document.querySelectorAll('#features input[type="checkbox"]')
+var mesSelect = document.querySelectorAll('#features input[type="checkbox"]')
     // *upperCaseValue
 const upperCaseValue = document.getElementById('upperCaseValue');
 // *lowerCaseValue
@@ -68,7 +68,12 @@ function returnItemTrousseau(idInput, tabChar) {
     }
     return tabData;
 }
-
+// ! fonction qui permet de désélectionner tous les éléments cochés si quizLabel3'est le cas
+function deselectionner() {
+    mesSelect.forEach(input => {
+        input.checked = false;
+    });
+}
 
 
 
@@ -209,8 +214,8 @@ function genererMotDePasse() {
  ======
  ==
  */ // !evénement générer
-console.log(mesSelect);
 generer.addEventListener('click', genererMotDePasse);
-/* document.addEventListener('load', () => {
-
-}) */
+window.addEventListener('load', () => {
+    deselectionner();
+    ecran.value = "Générateur de mot passe"
+})
