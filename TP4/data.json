@@ -1,4 +1,4 @@
-{
+[{
     "question1": {
         "question": "Quel est le meilleur langage de programation en 2022",
         "a": "Java",
@@ -80,4 +80,4 @@
         "e": "PHP",
         "correction": "d"
     }
-}
+}]
