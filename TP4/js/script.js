@@ -6,7 +6,7 @@
  ======
  ==
  */
-const dataQuiz = [{
+var dataQuiz = [{
         question: "Quel est le meilleur langage de programation en 2022",
         prop1: "Java",
         prop2: "C",
@@ -50,17 +50,9 @@ const dataQuiz = [{
         prop4: "Abidjan",
         prop5: "Dakar",
         correction: "prop5"
-    }, {
-        question: "Comment s'appelle le thioro de Souleymane Diallo.Dévine!",
-        prop1: "Aby",
-        prop2: "autre",
-        prop3: "Fatimata",
-        prop4: "Khady",
-        prop5: "Oulimata",
-        correction: "prop3"
     }
 ];
-// console.log(dataQuiz.shuffle());
+randomize(dataQuiz);
 // ! Variables getting by 
 const quizOrder = document.getElementById('quizOrder');
 // todo _ mainHeader :direct parent of id[quizCard]
@@ -134,7 +126,6 @@ function correction(rep) {
         correct.nextElementSibling.style.color = 'red';
     }
 }
-
 // ! fonction qui permet de récupérer La Réponse Cochée
 function recupereLaReponseCoche() {
     let laReponse;
@@ -174,7 +165,6 @@ nextQuiz.addEventListener('click', () => {
             const appreciations = performances(scoreFinal);
             reponse.innerText = `Vous avez trouvé ${scoreFinal}%  des questions\n` + appreciations;
             newQuiz.setAttribute('onclick', "location.reload()");
-            dataQuiz.reverse();
         }
     }
 });
@@ -197,4 +187,15 @@ function performances(score) {
         appreciations = 'Excellent! On dirait une bibliothèque';
     }
     return appreciations;
+}
+// !  utilisation de l’algorithme de Fisher pour mélanger un tableau.
+function randomize(tab) {
+    var i, j, tmp;
+    for (i = tab.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        tmp = tab[i];
+        tab[i] = tab[j];
+        tab[j] = tmp;
+    }
+    return tab;
 }
